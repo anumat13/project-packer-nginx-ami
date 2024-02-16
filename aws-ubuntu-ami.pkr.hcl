@@ -30,7 +30,7 @@ build {
     "source.amazon-ebs.ubuntu-nginx"
   ]
 
-# defining the provisioner block
+# defining the provisioner block using shell provisioner
 
   provisioner "shell" {
     inline = [
