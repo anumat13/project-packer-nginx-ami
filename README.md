@@ -1,5 +1,4 @@
-# project-packer-nginx
-
+# Project demonstrating use of Hashicorp Packer to create a custom AMI
 
 ## Creating Ubuntu AMI with Nginx Preinstalled and Firewall Rules Applied
 
@@ -13,7 +12,7 @@ This guide outlines the steps to create a custom Ubuntu AMI with Nginx preinstal
 
 ### Steps
 
-1. **Set Up Configuration File**: Create a Packer configuration file, use the provided Packer file as a reference.
+1. **Set Up Configuration File**: Create a Packer configuration file named `aws-ubuntu-ami.pkr.hcl` using the provided Packer file as a reference.
 
 2. **Define Source Block**: Inside the Packer configuration file, define the source block specifying the base Ubuntu AMI to use as a starting point. Ensure that the AMI is accessible in your selected region.
 
@@ -54,7 +53,7 @@ This guide outlines the steps to create a custom Ubuntu AMI with Nginx preinstal
 5. **Run Packer Build**: Execute the Packer build command in the directory containing your Packer configuration file.
 
     ```bash
-    packer build nginx_ami.pkr.hcl
+    packer build aws-ubuntu-ami.pkr.hcl
     ```
 
 6. **Test the AMI**: Once the build process completes successfully, verify that the new AMI is created in your AWS account. Launch an EC2 instance using this AMI to ensure that Nginx is installed and running correctly, and firewall rules are applied as expected.
@@ -63,6 +62,11 @@ This guide outlines the steps to create a custom Ubuntu AMI with Nginx preinstal
 
 8. **Update and Maintain**: Keep your Packer configuration and provisioning scripts up to date with any changes in your infrastructure or software requirements. Regularly review and update the AMIs to incorporate security patches and updates.
 
-### Conclusion
+### Basic Packer Commands
 
-Following these steps, you can create a custom Ubuntu AMI with Nginx preinstalled and firewall rules applied using Packer.
+- `packer validate aws-ubuntu-ami.pkr.hcl`: Validates the syntax of the Packer configuration file.
+- `packer build aws-ubuntu-ami.pkr.hcl`: Builds the AMI using the specified Packer configuration file.
+- `packer inspect aws-ubuntu-ami.pkr.hcl`: Shows the full configuration of the Packer template in JSON format.
+- `packer console`: Opens an interactive console for testing HCL expressions.
+
+Following these steps and using the basic Packer commands, you can create a custom Ubuntu AMI with Nginx preinstalled and firewall rules applied efficiently.
